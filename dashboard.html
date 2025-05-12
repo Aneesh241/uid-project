@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UID - Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dashboard-body">
+    <!-- Sidebar -->
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <div class="header-row">
+            <h2>UID</h2>
+                <div class="theme-toggle-container">
+                    <button id="themeToggle" class="theme-toggle-button" aria-label="Toggle theme" type="button">
+                        <i class="fas fa-moon moon-icon"></i>
+                        <i class="fas fa-sun sun-icon"></i>
+                    </button>
+                </div>
+            </div>
+            <p class="user-welcome">Welcome, <span id="userName">User</span>!</p>
+        </div>
+        <ul class="sidebar-menu">
+            <li class="active">
+                <a href="dashboard.html"><i class="fas fa-home"></i>Dashboard</a>
+            </li>
+            <li>
+                <a href="billing.html"><i class="fas fa-calculator"></i>Billing</a>
+            </li>
+            <li>
+                <a href="orders.html"><i class="fas fa-list-alt"></i>Orders</a>
+            </li>
+            <li>
+                <a href="reports.html"><i class="fas fa-chart-bar"></i>Reports</a>
+            </li>
+            <li>
+                <a href="reset.html"><i class="fas fa-trash-restore"></i>Reset System</a>
+            </li>
+            <li class="logout">
+                <a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i>Logout</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Parallax Header -->
+        <div class="parallax-header">
+            <div class="parallax-content">
+                <h1>Dashboard</h1>
+                <p>Manage your billing system efficiently</p>
+            </div>
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <i class="fas fa-rupee-sign"></i>
+                <h3>Completed Sales</h3>
+                <p class="stat-value" id="totalSales">₹0.00</p>
+                <p class="stat-change" id="salesChange"><span>Loading...</span></p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-clock"></i>
+                <h3>Pending Orders</h3>
+                <p class="stat-value" id="pendingOrders">0</p>
+                <p class="stat-change" id="pendingAmount"><span>₹0.00</span></p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-utensils"></i>
+                <h3>Orders Today</h3>
+                <p class="stat-value" id="ordersToday">0</p>
+                <p class="stat-change" id="ordersChange"><span>Loading...</span></p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-star"></i>
+                <h3>Avg. Rating</h3>
+                <p class="stat-value" id="avgRating">0.0</p>
+                <p class="stat-change" id="ratingChange"><span>Loading...</span></p>
+            </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="quick-actions">
+            <h2>Quick Actions</h2>
+            <div class="action-buttons">
+                <button class="action-btn" onclick="window.location.href='billing.html'" type="button">
+                    <i class="fas fa-plus"></i>
+                    New Bill
+                </button>
+                <button class="action-btn" onclick="window.location.href='orders.html'" type="button">
+                    <i class="fas fa-history"></i>
+                    View Orders
+                </button>
+                <button class="action-btn" onclick="window.location.href='reports.html'" type="button">
+                    <i class="fas fa-file-invoice"></i>
+                    Generate Report
+                </button>
+                </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">UID Project</div>
+            <div class="footer-links">
+                <a href="about.html" class="footer-link">Project Info</a>
+                <a href="contact.html" class="footer-link">Documentation</a>
+                <a href="privacy.html" class="footer-link">User Guide</a>
+                <a href="terms.html" class="footer-link">Academic Info</a>
+            </div>
+            <div class="footer-social">
+                <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+            </div>
+            <div class="footer-copyright">
+                &copy; 2023-24 UID Course Project. Made for academic purposes only.
+            </div>
+        </div>
+    </footer>
+
+    <script src="dashboard.js"></script>
+    <!-- Theme script must be included in all HTML files -->
+<script src="theme.js"></script>
+</body>
+</html>

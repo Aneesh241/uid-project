@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UID - System Reset</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .reset-container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .reset-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .reset-header h1 {
+            color: var(--text-dark);
+            margin-bottom: 10px;
+            font-size: 24px;
+        }
+        
+        .reset-header p {
+            color: var(--text-light);
+        }
+        
+        .reset-options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .reset-option {
+            padding: 15px;
+            background-color: var(--white);
+            border-radius: 6px;
+            border-left: 4px solid var(--primary-color);
+            box-shadow: 0 2px 8px var(--shadow-color);
+        }
+        
+        .reset-option h3 {
+            display: flex;
+            align-items: center;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+        
+        .reset-option h3 i {
+            margin-right: 10px;
+            color: var(--primary-color);
+        }
+        
+        .reset-option p {
+            color: var(--text-light);
+            margin-bottom: 15px;
+            padding-left: 28px;
+        }
+        
+        .reset-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        
+        .back-btn {
+            padding: 10px 15px;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .back-btn:hover {
+            background-color: var(--hover-bg);
+            transform: translateY(-2px);
+        }
+        
+        .back-btn i {
+            margin-right: 8px;
+        }
+        
+        .reset-btn {
+            padding: 10px 20px;
+            background-color: #e53935;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .reset-btn:hover {
+            background-color: #c62828;
+            transform: translateY(-2px);
+        }
+        
+        .reset-complete {
+            text-align: center;
+            display: none;
+        }
+        
+        .reset-complete i {
+            font-size: 50px;
+            color: #4caf50;
+            margin-bottom: 20px;
+        }
+        
+        .reset-complete h2 {
+            color: var(--text-dark);
+            margin-bottom: 15px;
+        }
+        
+        .reset-complete p {
+            color: var(--text-light);
+            margin-bottom: 25px;
+        }
+        
+        .login-btn {
+            padding: 10px 20px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        
+        .login-btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        /* Content header consistent with other pages */
+        .content-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 2px 10px var(--shadow-color);
+        }
+    </style>
+</head>
+<body class="dashboard-body">
+    <!-- Sidebar -->
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <div class="header-row">
+                <h2>UID</h2>
+                <div class="theme-toggle-container">
+                    <button id="themeToggle" class="theme-toggle-button" aria-label="Toggle theme" type="button">
+                        <i class="fas fa-moon moon-icon"></i>
+                        <i class="fas fa-sun sun-icon"></i>
+                    </button>
+                </div>
+            </div>
+            <p class="user-welcome">Welcome, <span id="userName">User</span>!</p>
+        </div>
+        
+        <ul class="sidebar-menu">
+            <li>
+                <a href="dashboard.html"><i class="fas fa-home"></i>Dashboard</a>
+            </li>
+            <li>
+                <a href="billing.html"><i class="fas fa-calculator"></i>Billing</a>
+            </li>
+            <li>
+                <a href="orders.html"><i class="fas fa-list-alt"></i>Orders</a>
+            </li>
+            <li>
+                <a href="reports.html"><i class="fas fa-chart-bar"></i>Reports</a>
+            </li>
+            <li class="active">
+                <a href="reset.html"><i class="fas fa-trash-restore"></i>Reset System</a>
+            </li>
+            <li class="logout">
+                <a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i>Logout</a>
+            </li>
+        </ul>
+    </nav>
+    
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Header -->
+        <div class="content-header">
+            <h1>System Reset</h1>
+            <p>Reset your system data to start fresh. Be careful, this action cannot be undone.</p>
+        </div>
+        
+        <div class="reset-container">
+            <div id="resetOptions">
+                <div class="reset-options">
+                    <div class="reset-option">
+                        <h3><i class="fas fa-database"></i> Reset Orders and Bills</h3>
+                        <p>This will clear all orders, bills, and transaction history while preserving user accounts.</p>
+                        <button id="resetOrdersBtn" class="reset-btn" type="button">Reset Orders & Bills</button>
+                    </div>
+                    
+                    <div class="reset-option">
+                        <h3><i class="fas fa-cog"></i> Reset System Settings</h3>
+                        <p>This will reset all system settings and preferences to default values.</p>
+                        <button id="resetSettingsBtn" class="reset-btn" type="button">Reset Settings</button>
+                    </div>
+                    
+                    <div class="reset-option">
+                        <h3><i class="fas fa-exclamation-triangle"></i> Factory Reset</h3>
+                        <p>This will completely reset the system, removing all data including user accounts. You will need to set up the system again.</p>
+                        <button id="factoryResetBtn" class="reset-btn" type="button">Factory Reset</button>
+                    </div>
+                </div>
+                
+                <div class="reset-buttons">
+                    <button id="backBtn" class="back-btn" type="button">
+                        <i class="fas fa-arrow-left"></i> Back to Dashboard
+                    </button>
+                </div>
+            </div>
+            
+            <div id="resetComplete" class="reset-complete">
+                <i class="fas fa-check-circle"></i>
+                <h2>Reset Complete</h2>
+                <p>The system has been successfully reset.</p>
+                <a href="index.html" class="login-btn">Go to Login</a>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">UID Project</div>
+            <div class="footer-links">
+                <a href="about.html" class="footer-link">Project Info</a>
+                <a href="contact.html" class="footer-link">Documentation</a>
+                <a href="privacy.html" class="footer-link">User Guide</a>
+                <a href="terms.html" class="footer-link">Academic Info</a>
+            </div>
+            <div class="footer-social">
+                <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+            </div>
+            <div class="footer-copyright">
+                &copy; 2023-24 UID Course Project. Made for academic purposes only.
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Reset script for system reset functions -->
+    <script src="reset.js"></script>
+    
+    <!-- Developer mode script -->
+    <script src="devmode.js"></script>
+    
+    <!-- Theme script must be included in all HTML files -->
+    <script src="theme.js"></script>
+</body>
+</html> 

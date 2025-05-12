@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UID - Reports</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="reports-body">
+    <!-- Sidebar -->
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <div class="header-row">
+            <h2>UID</h2>
+                <div class="theme-toggle-container">
+                    <button id="themeToggle" class="theme-toggle-button" aria-label="Toggle theme" type="button">
+                        <i class="fas fa-moon moon-icon"></i>
+                        <i class="fas fa-sun sun-icon"></i>
+                    </button>
+                </div>
+            </div>
+            <p class="user-welcome">Welcome, <span id="userName">User</span>!</p>
+        </div>
+        
+        <ul class="sidebar-menu">
+            <li>
+                <a href="dashboard.html"><i class="fas fa-home"></i>Dashboard</a>
+            </li>
+            <li>
+                <a href="billing.html"><i class="fas fa-calculator"></i>Billing</a>
+            </li>
+            <li>
+                <a href="orders.html"><i class="fas fa-list-alt"></i>Orders</a>
+            </li>
+            <li class="active">
+                <a href="reports.html"><i class="fas fa-chart-bar"></i>Reports</a>
+            </li>
+            <li>
+                <a href="reset.html"><i class="fas fa-trash-restore"></i>Reset System</a>
+            </li>
+            <li class="logout">
+                <a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i>Logout</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Header -->
+        <div class="content-header">
+            <h1>Sales Reports</h1>
+            <p>View and analyze your system's performance</p>
+        </div>
+
+        <!-- Date Range Filter -->
+        <div class="date-filter">
+            <div class="date-range">
+                <label for="startDate">From:</label>
+                <input type="date" id="startDate">
+            </div>
+            <div class="date-range">
+                <label for="endDate">To:</label>
+                <input type="date" id="endDate">
+            </div>
+            <button id="applyDateFilter" class="filter-apply-btn" type="button">
+                <i class="fas fa-filter"></i> Apply Filter
+            </button>
+        </div>
+
+        <!-- Summary Cards -->
+        <div class="summary-cards">
+            <div class="summary-card">
+                <i class="fas fa-rupee-sign"></i>
+                <h3>Total Revenue</h3>
+                <p class="summary-value" id="totalRevenue">₹0</p>
+            </div>
+            <div class="summary-card">
+                <i class="fas fa-file-invoice"></i>
+                <h3>Total Bills</h3>
+                <p class="summary-value" id="totalBills">0</p>
+            </div>
+            <div class="summary-card">
+                <i class="fas fa-shopping-basket"></i>
+                <h3>Items Sold</h3>
+                <p class="summary-value" id="itemsSold">0</p>
+            </div>
+            <div class="summary-card">
+                <i class="fas fa-chart-line"></i>
+                <h3>Avg. Bill Value</h3>
+                <p class="summary-value" id="avgBillValue">₹0</p>
+            </div>
+            <div class="summary-card">
+                <i class="fas fa-check-circle"></i>
+                <h3>Completion Rate</h3>
+                <p class="summary-value" id="completionRate">0%</p>
+            </div>
+            <div class="summary-card">
+                <i class="fas fa-times-circle"></i>
+                <h3>Cancellation Rate</h3>
+                <p class="summary-value" id="cancellationRate">0%</p>
+            </div>
+        </div>
+
+        <!-- Reports Tabs -->
+        <div class="report-tabs">
+            <button class="report-tab active" data-tab="sales" type="button">Sales Report</button>
+            <button class="report-tab" data-tab="items" type="button">Item Analysis</button>
+            <button class="report-tab" data-tab="payment" type="button">Payment Methods</button>
+            <button class="report-tab" data-tab="cancellation" type="button">Cancellation Analysis</button>
+        </div>
+
+        <!-- Reports Content -->
+        <div class="report-content">
+            <!-- Sales Report Table -->
+            <div class="report-table-container active" id="salesReport">
+                <div class="table-header">
+                    <h3>Sales Report</h3>
+                </div>
+                <div class="table-wrapper">
+                    <table class="report-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Bill #</th>
+                                <th>Items</th>
+                                <th>Payment Method</th>
+                                <th>Status</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody id="salesTableBody">
+                            <!-- Will be populated dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Item Analysis Report -->
+            <div class="report-table-container" id="itemsReport">
+                <div class="table-header">
+                    <h3>Item Analysis</h3>
+                </div>
+                <div class="table-wrapper">
+                    <table class="report-table">
+                        <thead>
+                            <tr>
+                                <th>Item Name</th>
+                                <th>Quantity Sold</th>
+                                <th>Revenue Generated</th>
+                                <th>% of Total Revenue</th>
+                            </tr>
+                        </thead>
+                        <tbody id="itemsTableBody">
+                            <!-- Will be populated dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Payment Methods Report -->
+            <div class="report-table-container" id="paymentReport">
+                <div class="table-header">
+                    <h3>Payment Methods</h3>
+                </div>
+                <div class="payment-chart">
+                    <div class="chart-container">
+                        <div class="payment-bar-container">
+                            <span>UPI</span>
+                            <div class="payment-bar upi" id="upiBar"></div>
+                        </div>
+                        <div class="payment-bar-container">
+                            <span>Card</span>
+                            <div class="payment-bar card" id="cardBar"></div>
+                        </div>
+                        <div class="payment-bar-container">
+                            <span>Cash</span>
+                            <div class="payment-bar cash" id="cashBar"></div>
+                        </div>
+                    </div>
+                    <div class="chart-legend">
+                        <div class="legend-item">
+                            <div class="legend-color upi"></div>
+                            <span>UPI: <span id="upiPercent">0%</span> (₹<span id="upiAmount">0</span>)</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color card"></div>
+                            <span>Card: <span id="cardPercent">0%</span> (₹<span id="cardAmount">0</span>)</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color cash"></div>
+                            <span>Cash: <span id="cashPercent">0%</span> (₹<span id="cashAmount">0</span>)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cancellation Analysis Report -->
+            <div class="report-table-container" id="cancellationReport">
+                <div class="table-header">
+                    <h3>Cancellation Analysis</h3>
+                </div>
+                
+                <!-- Order Completion Stats -->
+                <div class="completion-stats">
+                    <div class="completion-chart">
+                        <div class="chart-container">
+                            <div class="completion-bar-container">
+                                <span>Completed</span>
+                                <div class="completion-bar completed" id="completedBar"></div>
+                            </div>
+                            <div class="completion-bar-container">
+                                <span>Cancelled</span>
+                                <div class="completion-bar cancelled" id="cancelledBar"></div>
+                            </div>
+                            <div class="completion-bar-container">
+                                <span>Pending</span>
+                                <div class="completion-bar pending" id="pendingBar"></div>
+                            </div>
+                        </div>
+                        <div class="chart-legend">
+                            <div class="legend-item">
+                                <div class="legend-color completed"></div>
+                                <span>Completed: <span id="completedPercent">0%</span> (<span id="completedCount">0</span> orders)</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color cancelled"></div>
+                                <span>Cancelled: <span id="cancelledPercent">0%</span> (<span id="cancelledCount">0</span> orders)</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color pending"></div>
+                                <span>Pending: <span id="pendingPercent">0%</span> (<span id="pendingCount">0</span> orders)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Cancellation Reasons -->
+                <div class="table-subheader">
+                    <h4>Cancellation Reasons</h4>
+                </div>
+                <div class="table-wrapper">
+                    <table class="report-table">
+                        <thead>
+                            <tr>
+                                <th>Bill #</th>
+                                <th>Date</th>
+                                <th>Amount</th>
+                                <th>Cancellation Reason</th>
+                            </tr>
+                        </thead>
+                        <tbody id="cancellationTableBody">
+                            <!-- Will be populated dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">UID Project</div>
+            <div class="footer-links">
+                <a href="about.html" class="footer-link">Project Info</a>
+                <a href="contact.html" class="footer-link">Documentation</a>
+                <a href="privacy.html" class="footer-link">User Guide</a>
+                <a href="terms.html" class="footer-link">Academic Info</a>
+            </div>
+            <div class="footer-social">
+                <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+            </div>
+            <div class="footer-copyright">
+                &copy; 2023-24 UID Course Project. Made for academic purposes only.
+            </div>
+        </div>
+    </footer>
+
+    <script src="reports.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Check if user is logged in
+        const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+        if (!currentUser) {
+            window.location.href = 'index.html';
+            return;
+        }
+
+        // Set user name in the welcome message
+        const userNameElement = document.getElementById('userName');
+        if (userNameElement) {
+            userNameElement.textContent = currentUser.name;
+        }
+        
+        // Handle logout
+        const logoutBtn = document.getElementById('logoutBtn');
+        if (logoutBtn) {
+            logoutBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                sessionStorage.removeItem('currentUser');
+                window.location.href = 'index.html';
+            });
+        }
+    });
+    </script>
+    <!-- Theme script must be included in all HTML files -->
+<script src="theme.js"></script>
+</body>
+</html> 

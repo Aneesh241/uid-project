@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UID - Project Documentation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <div class="header-row">
+            <h2>UID</h2>
+                <div class="theme-toggle-container">
+                    <button id="themeToggle" class="theme-toggle-button" aria-label="Toggle theme" type="button">
+                        <i class="fas fa-moon moon-icon"></i>
+                        <i class="fas fa-sun sun-icon"></i>
+                    </button>
+                </div>
+            </div>
+            <p class="user-welcome">Welcome, <span id="userName">User</span>!</p>
+        </div>
+        
+        <ul class="sidebar-menu">
+            <li>
+                <a href="dashboard.html"><i class="fas fa-home"></i>Dashboard</a>
+            </li>
+            <li>
+                <a href="billing.html"><i class="fas fa-calculator"></i>Billing</a>
+            </li>
+            <li>
+                <a href="orders.html"><i class="fas fa-list-alt"></i>Orders</a>
+            </li>
+            <li>
+                <a href="reports.html"><i class="fas fa-chart-bar"></i>Reports</a>
+            </li>
+            <li>
+                <a href="reset.html"><i class="fas fa-trash-restore"></i>Reset System</a>
+            </li>
+            <li class="logout">
+                <a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i>Logout</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="contact-container">
+            <h1>Project Documentation</h1>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-file-code"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Project Structure</h3>
+                            <p>The system uses a modular architecture with HTML for structure, CSS for styling, and JavaScript for functionality.</p>
+                            <p>All data is stored in browser's session storage for demonstration purposes.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-sitemap"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>System Components</h3>
+                            <p>Authentication System</p>
+                            <p>Billing Module</p>
+                            <p>Order Management System</p>
+                            <p>Reporting & Analytics</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>UI/UX Principles Applied</h3>
+                            <p>Responsive Design: Works on multiple screen sizes</p>
+                            <p>Dark/Light Mode: Accessibility feature</p>
+                            <p>Consistent Navigation: Intuitive user flow</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-code-branch"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Future Improvements</h3>
+                            <p>Backend Integration: Replace session storage with database</p>
+                            <p>Kitchen Display System: For order preparation</p>
+                            <p>Inventory Management: Track ingredient usage</p>
+                        </div>
+                    </div>
+                    
+                    <div class="social-connect">
+                        <h3>Project Resources</h3>
+                        <div class="social-icons">
+                            <a href="#" class="social-icon" title="GitHub Repository"><i class="fab fa-github"></i></a>
+                            <a href="#" class="social-icon" title="Presentation Slides"><i class="fas fa-file-powerpoint"></i></a>
+                            <a href="#" class="social-icon" title="Project Report"><i class="fas fa-file-pdf"></i></a>
+                            <a href="#" class="social-icon" title="Code Documentation"><i class="fas fa-book-open"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form-container">
+                    <h2>Implementation Details</h2>
+                    <div class="implementation-details">
+                        <h3>Authentication System</h3>
+                        <p>The system includes a simple authentication mechanism with predefined users stored in session storage. Login validation is handled client-side with JavaScript.</p>
+                        
+                        <h3>Billing Module</h3>
+                        <p>The billing system allows adding menu items to a bill, adjusting quantities, calculating totals with taxes, and processing payments through multiple methods (cash, card, UPI).</p>
+                        
+                        <h3>Order Management</h3>
+                        <p>Orders are tracked from creation to completion. The system maintains order history and allows filtering by status (pending, completed, cancelled).</p>
+                        
+                        <h3>Reporting System</h3>
+                        <p>The reporting module provides visual representations of sales data, payment methods, and order completion statistics to help analyze business performance.</p>
+                        
+                        <h3>Theme System</h3>
+                        <p>A theme system is implemented using CSS variables and custom attributes. Users can switch between light and dark modes for better accessibility and personal preference.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="map-section">
+                <h2>Data Flow Diagram</h2>
+                <div class="map-container">
+                    <img src="assets/images/map.jpg" alt="System Data Flow Diagram" class="map-img">
+                </div>
+            </div>
+            
+            <div class="faq-section">
+                <h2>Development Process FAQs</h2>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>What were the main UI/UX principles applied in this project?</h3>
+                            <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>The project focused on applying several key UI/UX principles including consistency in design elements, clear visual hierarchy, responsive design for multiple devices, accessibility features like theme switching, simplicity in form design, and providing clear feedback for user actions.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>How was the development process organized?</h3>
+                            <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>The development followed a structured process starting with requirements gathering and wireframing, followed by UI design, frontend development, and testing. The team met regularly to review progress and distribute tasks. Responsibilities were divided based on team members' strengths and interests.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>What were the major challenges faced during development?</h3>
+                            <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Key challenges included implementing the data persistence without a backend server, ensuring responsive design across various screen sizes, designing an intuitive flow for the billing process, and creating a comprehensive but user-friendly reporting system.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>What technologies were considered but not used?</h3>
+                            <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Initially, the team considered using frameworks like React or Angular for frontend development, and Firebase for backend services. However, to focus more on fundamental UI/UX principles and ensure the project remained accessible for all team members, we opted for vanilla HTML, CSS, and JavaScript with session storage.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">UID Project</div>
+            <div class="footer-links">
+                <a href="about.html" class="footer-link">Project Info</a>
+                <a href="contact.html" class="footer-link">Documentation</a>
+                <a href="privacy.html" class="footer-link">User Guide</a>
+                <a href="terms.html" class="footer-link">Academic Info</a>
+            </div>
+            <div class="footer-social">
+                <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="social-icon"><i class="fas fa-envelope"></i></a>
+                <a href="#" class="social-icon"><i class="fas fa-university"></i></a>
+            </div>
+            <div class="footer-copyright">
+                &copy; 2023-24 UID Course Project. Made for academic purposes only.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Check authentication
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+            if (!currentUser) {
+                window.location.href = 'index.html';
+                return;
+            }
+            
+            // Set user name
+            const userNameElement = document.getElementById('userName');
+            if (userNameElement) {
+                userNameElement.textContent = currentUser.name || 'User';
+            }
+            
+            // Handle logout
+            const logoutBtn = document.getElementById('logoutBtn');
+            if (logoutBtn) {
+                logoutBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    sessionStorage.removeItem('currentUser');
+                    window.location.href = 'index.html';
+                });
+            }
+            
+            // FAQ toggle
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const questionDiv = item.querySelector('.faq-question');
+                const answerDiv = item.querySelector('.faq-answer');
+                const toggleIcon = item.querySelector('.faq-toggle i');
+                
+                questionDiv.addEventListener('click', () => {
+                    answerDiv.classList.toggle('active');
+                    toggleIcon.classList.toggle('fa-plus');
+                    toggleIcon.classList.toggle('fa-minus');
+                });
+            });
+        });
+    </script>
+    <!-- Theme script must be included in all HTML files -->
+    <script src="theme.js"></script>
+</body>
+</html> 

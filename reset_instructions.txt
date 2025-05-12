@@ -1,0 +1,16 @@
+/* To reset all data in the billing system, you can use one of the following methods: */
+
+Method 1: Use the Reset System page
+1. Navigate to the Reset System page through the sidebar
+2. Choose the type of reset you want to perform
+
+Method 2: Use the browser console
+1. Open your browser developer tools (F12 or right-click > Inspect)
+2. Go to the Console tab
+3. Type one of the following commands:
+   - resetAll() - Reset everything
+   - resetOrders() - Reset only orders and transactions
+   - resetSettings() - Reset only settings and preferences
+   - resetUsers() - Reset only user accounts
+
+For any other questions, contact system administrator. 
